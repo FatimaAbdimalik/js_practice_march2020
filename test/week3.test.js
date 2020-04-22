@@ -3,10 +3,10 @@ const {
   camelCaseWords,
   getTotalSubjects,
   checkIngredients,
-  duplicateNumbers
+  duplicateNumbers,
 } = require("../challenges/week3");
 
-describe("camelCaseWords", () => {
+describe.only("camelCaseWords", () => {
   test("camel cases a single word (i.e. no capital letter at beginning)", () => {
     expect(camelCaseWords(["my"])).toBe("my");
   });
@@ -25,7 +25,7 @@ describe("camelCaseWords", () => {
   });
 });
 
-describe("getSquares", () => {
+describe.only("getSquares", () => {
   test("returns an empty array if empty array passed", () => {
     expect(getSquares([])).toEqual([]);
   });
@@ -39,17 +39,17 @@ describe("getSquares", () => {
       576,
       25,
       4356,
-      984064
+      984064,
     ]);
   });
 });
 
-describe("getTotalSubjects", () => {
+describe.only("getTotalSubjects", () => {
   test("returns 0 if no people have subjects", () => {
     const people = [
       { name: "Billy", subjects: [] },
       { name: "Claude", subjects: [] },
-      { name: "Aneeta", subjects: [] }
+      { name: "Aneeta", subjects: [] },
     ];
     expect(getTotalSubjects(people)).toBe(0);
   });
@@ -58,7 +58,7 @@ describe("getTotalSubjects", () => {
     const people = [
       { name: "Billy", subjects: [] },
       { name: "Claude", subjects: ["chemistry"] },
-      { name: "Aneeta", subjects: [] }
+      { name: "Aneeta", subjects: [] },
     ];
     expect(getTotalSubjects(people)).toBe(1);
   });
@@ -67,22 +67,22 @@ describe("getTotalSubjects", () => {
     const people = [
       { name: "Billy", subjects: ["welsh", "spanish"] },
       { name: "Claude", subjects: ["chemistry", "biology", "music"] },
-      { name: "Aneeta", subjects: ["physics", "maths", "computing", "music"] }
+      { name: "Aneeta", subjects: ["physics", "maths", "computing", "music"] },
     ];
     expect(getTotalSubjects(people)).toBe(9);
   });
 });
 
-describe("checkIngredients", () => {
+describe.only("checkIngredients", () => {
   test("returns false if no menu items include the specified ingredient", () => {
     const menu = [
       {
         name: "tofu fritters",
-        ingredients: ["tofu", "egg yolk", "breadbrumbs", "paprika"]
+        ingredients: ["tofu", "egg yolk", "breadbrumbs", "paprika"],
       },
       {
         name: "black bean curry",
-        ingredients: ["black beans", "garam masala", "rice"]
+        ingredients: ["black beans", "garam masala", "rice"],
       },
       {
         name: "chocolate tiffin",
@@ -91,13 +91,13 @@ describe("checkIngredients", () => {
           "egg",
           "flour",
           "brown sugar",
-          "vanilla essence"
-        ]
+          "vanilla essence",
+        ],
       },
       {
         name: "hummus",
-        ingredients: ["chickpeas", "tahini", "lemon", "garlic", "salt"]
-      }
+        ingredients: ["chickpeas", "tahini", "lemon", "garlic", "salt"],
+      },
     ];
 
     expect(checkIngredients(menu, "milk")).toBe(false);
@@ -107,11 +107,11 @@ describe("checkIngredients", () => {
     const menu = [
       {
         name: "tofu fritters",
-        ingredients: ["tofu", "egg yolk", "breadbrumbs", "paprika"]
+        ingredients: ["tofu", "egg yolk", "breadbrumbs", "paprika"],
       },
       {
         name: "black bean curry",
-        ingredients: ["black beans", "garam masala", "rice"]
+        ingredients: ["black beans", "garam masala", "rice"],
       },
       {
         name: "chocolate tiffin",
@@ -120,20 +120,20 @@ describe("checkIngredients", () => {
           "egg",
           "flour",
           "brown sugar",
-          "vanilla essence"
-        ]
+          "vanilla essence",
+        ],
       },
       {
         name: "hummus",
-        ingredients: ["chickpeas", "tahini", "lemon", "garlic", "salt"]
-      }
+        ingredients: ["chickpeas", "tahini", "lemon", "garlic", "salt"],
+      },
     ];
 
     expect(checkIngredients(menu, "dark chocolate")).toBe(true);
   });
 });
 
-describe("duplicateNumbers", () => {
+describe.only("duplicateNumbers", () => {
   test("returns an array of numbers which appear in both arr1 and arr2", () => {
     let arr1 = [1, 55, 4, 3, 7, 8];
     let arr2 = [55, 23, 65, 0];
