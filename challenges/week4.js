@@ -1,43 +1,77 @@
 function findSmallNums(nums) {
-  if (!nums) throw new Error("nums is required");
-  // Your code here
+  let arr1 = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] < 1) {
+      arr1.push(nums[i]);
+    }
+  }
+  return arr1;
 }
 
 function findNamesBeginningWith(names, char) {
-  if (!names) throw new Error("names is required");
-  if (!char) throw new Error("char is required");
-  // Your code here
+  let arr1 = [];
+  for (let i = 0; i < names.length; i++) {
+    if (names[i].charAt(0) === char) {
+      arr1.push(names[i]);
+    }
+  }
+  return arr1;
 }
 
 function findVerbs(words) {
-  if (!words) throw new Error("words is required");
+  return words.filter((word) => word.includes("to "));
   // Your code here
 }
 
 function getIntegers(nums) {
-  if (!nums) throw new Error("nums is required");
-  // Your code here
+  let arr = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] % 1 === 0) {
+      arr.push(nums[i]);
+    }
+  }
+  return arr;
 }
 
 function getCities(users) {
-  if (!users) throw new Error("users is required");
-  // Your code here
+  return users.map((user) => user.data.city.displayName);
 }
 
 function getSquareRoots(nums) {
-  if (!nums) throw new Error("nums is required");
-  // Your code here
+  let arr = [];
+  for (let i = 0; i < nums.length; i++) {
+    arr.push(parseFloat(Math.sqrt(nums[i]).toFixed(2)));
+  }
+  return arr;
 }
 
 function findSentencesContaining(sentences, str) {
-  if (!sentences) throw new Error("sentences is required");
-  if (!str) throw new Error("str is required");
-  // Your code here
+  let arr1 = [];
+  for (let i = 0; i < sentences.length; i++) {
+    if (sentences[i].toLowerCase().includes(str.toLowerCase())) {
+      arr1.push(sentences[i]);
+    }
+  }
+  return arr1;
 }
 
 function getLongestSides(triangles) {
-  if (!triangles) throw new Error("triangles is required");
-  // Your code here
+  let arr = [];
+  let arr1 = Math.max(...triangles[0]);
+  let arr2 = Math.max(...triangles[1]);
+  let arr3 = Math.max(...triangles[2]);
+  let arr4 = Math.max(...triangles[3]);
+  let arr5 = Math.max(...triangles[4]);
+  arr.push(arr1, arr2, arr3, arr4, arr5);
+  console.log(arr);
+  return arr;
+  // let arr = [];
+  // for (let i = 0; i < triangles.length; i++) {
+  //   arr.push(Math.max.apply(null, triangles[i]));
+  // }
+  // console.log(arr);
+  // return arr;
+  // return triangles.map((arr) => Math.max(...arr));
 }
 
 module.exports = {
@@ -48,5 +82,5 @@ module.exports = {
   getCities,
   getSquareRoots,
   findSentencesContaining,
-  getLongestSides
+  getLongestSides,
 };
