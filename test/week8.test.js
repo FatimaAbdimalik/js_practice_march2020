@@ -139,7 +139,7 @@ describe.only("findNeedle", () => {
   });
 });
 
-describe("getWordFrequencies", () => {
+describe.only("getWordFrequencies", () => {
   test("returns the frequencies of each word in a string", () => {
     expect(getWordFrequencies("hello world")).toEqual({
       hello: 1,
