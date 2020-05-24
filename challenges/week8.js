@@ -1,20 +1,13 @@
 const findNextNumber = (nums, n) => {
-  // if (nums === undefined) throw new Error("nums is required");
-  // if (n === undefined) throw new Error("n is required");
   for (let i = 0; i < nums.length - 1; i++) {
     if (nums[i] === n) {
-      // console.log(nums[i + 1]);
       return nums[i + 1];
     }
   }
   return null;
-
-  // Your code here!
 };
 
 const count1sand0s = (str) => {
-  // if (str === undefined) throw new Error("str is required");
-  // Your code here!
   let str1 = str.split("");
 
   let count = str1.reduce((total, number) => {
@@ -26,27 +19,21 @@ const count1sand0s = (str) => {
 };
 
 const reverseNumber = (n) => {
-  // if (n === undefined) throw new Error("n is required");
-  // Your code here!
-  return Number(
-    n
-      .toString()
-      .split("")
-      .reverse()
-      .map((p) => parseInt(p))
-      .join("")
-  );
+  return Number(n.toString().split("").reverse().join(""));
 };
 
 const sumArrays = (arrs) => {
-  // if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
   return arrs.reduce((a, b) => a.concat(b), []).reduce((a, b) => a + b);
 };
 
 const arrShift = (arr) => {
-  if (arr === undefined) throw new Error("arr is required");
-  // Your code here!
+  if (arr.length >= 2) {
+    let arr1 = arr.pop();
+    let arr2 = arr.shift();
+    let newArr = [arr1, ...arr, arr2];
+    return newArr;
+  }
+  return arr;
 };
 
 const findNeedle = (haystack, searchTerm) => {
@@ -54,7 +41,7 @@ const findNeedle = (haystack, searchTerm) => {
   // if (searchTerm === undefined) throw new Error("searchTerm is required");
   // Your code here!
   // let arr = Object.values(haystack);
-  // let regex = /searchTerm/i;
+  // let regex = /[searchTerm]/i;
   // console.log(regex.test(arr));
   // return regex.test(arr);
   for (let key in haystack) {
@@ -65,12 +52,20 @@ const findNeedle = (haystack, searchTerm) => {
       return true;
     }
   }
+
   return false;
 };
 
 const getWordFrequencies = (str) => {
-  if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  let str1 = str
+    .replace(/[,!?]/gi, "")
+    .split(" ")
+    .map((p) => p.toLowerCase());
+  let count = str1.reduce((total, noun) => {
+    total[noun] = (total[noun] || 0) + 1;
+    return total;
+  }, {});
+  return count;
 };
 
 module.exports = {
