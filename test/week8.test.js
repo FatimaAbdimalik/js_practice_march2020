@@ -5,10 +5,10 @@ const {
   sumArrays,
   arrShift,
   findNeedle,
-  getWordFrequencies
+  getWordFrequencies,
 } = require("../challenges/week8");
 
-describe("findNextNumber", () => {
+describe.only("findNextNumber", () => {
   test("returns the next number after the given number in the array", () => {
     expect(findNextNumber([5, 3, 7, 8, 1, 10], 7)).toBe(8);
     expect(findNextNumber([5, 3, 7, 8, 1, 10], 1)).toBe(10);
@@ -32,27 +32,27 @@ describe("count1sand0s", () => {
   test("returns an object with the count of 1s and 0s in a string", () => {
     expect(count1sand0s("11000")).toEqual({
       1: 2,
-      0: 3
+      0: 3,
     });
 
     expect(count1sand0s("0101010111")).toEqual({
       1: 6,
-      0: 4
+      0: 4,
     });
 
     expect(count1sand0s("1111111")).toEqual({
       1: 7,
-      0: 0
+      0: 0,
     });
 
     expect(count1sand0s("0111")).toEqual({
       1: 3,
-      0: 1
+      0: 1,
     });
   });
 });
 
-describe("reverseNumber", () => {
+describe.only("reverseNumber", () => {
   test("reverses the digits of a number", () => {
     expect(reverseNumber(5)).toBe(5);
     expect(reverseNumber(104)).toBe(401);
@@ -61,14 +61,14 @@ describe("reverseNumber", () => {
   });
 });
 
-describe("sumArrays", () => {
+describe.only("sumArrays", () => {
   test("returns the total of the numbers in all sub arrays", () => {
     const arrs = [[1, 2, 3], [6, 3, 1], [1], [9, 10], [3, 5]];
     expect(sumArrays(arrs)).toBe(44);
   });
 });
 
-describe("arrShift", () => {
+describe.only("arrShift", () => {
   test("returns an array with the first and last items swapped", () => {
     expect(arrShift([1, 2])).toEqual([2, 1]);
     expect(arrShift([1, 2, 3])).toEqual([3, 2, 1]);
@@ -81,14 +81,14 @@ describe("arrShift", () => {
   });
 });
 
-describe("findNeedle", () => {
+describe.only("findNeedle", () => {
   test("returns true if any of the properties of an object contain the specified string", () => {
     const obj1 = {
       name: "LINNMON",
       description: "Small round table",
       price: 31.89,
       store: "Warrington",
-      code: 12872
+      code: 12872,
     };
     expect(findNeedle(obj1, "table")).toBe(true);
 
@@ -98,7 +98,7 @@ describe("findNeedle", () => {
       price: 1.99,
       location: "Hulme",
       discounted: false,
-      available: true
+      available: true,
     };
     expect(findNeedle(obj2, "Dishwasher")).toBe(true);
   });
@@ -109,7 +109,7 @@ describe("findNeedle", () => {
       description: "Small round table",
       price: 31.89,
       store: "Warrington",
-      code: 12872
+      code: 12872,
     };
     expect(findNeedle(obj1, "chair")).toBe(false);
 
@@ -119,7 +119,7 @@ describe("findNeedle", () => {
       price: 1.99,
       location: "Hulme",
       discounted: false,
-      available: true
+      available: true,
     };
     expect(findNeedle(obj2, "Carpet Cleaner")).toBe(false);
   });
@@ -130,7 +130,7 @@ describe("findNeedle", () => {
       description: "Small round table",
       price: 31.89,
       store: "Warrington",
-      code: 12872
+      code: 12872,
     };
 
     expect(findNeedle(obj1, "warrington")).toBe(true);
@@ -143,7 +143,7 @@ describe("getWordFrequencies", () => {
   test("returns the frequencies of each word in a string", () => {
     expect(getWordFrequencies("hello world")).toEqual({
       hello: 1,
-      world: 1
+      world: 1,
     });
 
     expect(getWordFrequencies("the cat is hairier than the rat")).toEqual({
@@ -152,17 +152,17 @@ describe("getWordFrequencies", () => {
       is: 1,
       hairier: 1,
       than: 1,
-      rat: 1
+      rat: 1,
     });
 
     expect(getWordFrequencies("hello hello hello")).toEqual({
-      hello: 3
+      hello: 3,
     });
   });
 
   test("ignores capitalisation", () => {
     expect(getWordFrequencies("Hello hello hello")).toEqual({
-      hello: 3
+      hello: 3,
     });
   });
 
@@ -175,7 +175,7 @@ describe("getWordFrequencies", () => {
       what: 1,
       have: 1,
       we: 1,
-      here: 1
+      here: 1,
     });
   });
 });
