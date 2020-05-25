@@ -8,14 +8,28 @@ const findNextNumber = (nums, n) => {
 };
 
 const count1sand0s = (str) => {
-  let str1 = str.split("");
+  // let str1 = str.split("");
 
-  let count = str1.reduce((total, number) => {
-    total[number] = (total[number] || 0) + 1;
-    return total;
-  }, {});
-  console.log(count);
-  return count;
+  // let count = str1.reduce((total, number) => {
+  //   total[number] = (total[number] || 0) + 1;
+  //   return total;
+  // }, {});
+  // console.log(count);
+  // return count;
+
+  let obj = {
+    "1": 0,
+    "0": 0,
+  };
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "1") {
+      obj["1"]++;
+    } else {
+      obj["0"]++;
+    }
+  }
+  console.log(obj);
+  return obj;
 };
 
 const reverseNumber = (n) => {
