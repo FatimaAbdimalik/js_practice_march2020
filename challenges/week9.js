@@ -4,8 +4,14 @@
  * @param {Array} arr
  * @returns {Number}
  */
-const sumMultiples = arr => {
+const sumMultiples = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
+  if (!Array.isArray(arr)) throw new Error(["An array is required"]);
+  let count = 0;
+  arr
+    .filter((num) => num % 3 === 0 || num % 5 === 0)
+    .forEach((total) => (count += total));
+  return count;
 };
 
 /**
@@ -13,8 +19,18 @@ const sumMultiples = arr => {
  * @param {String} str
  * @returns {Boolean}
  */
-const isValidDNA = str => {
-  if (str === undefined) throw new Error("str is required");
+const isValidDNA = (str) => {
+  // if (str === undefined) throw new Error("str is required");
+  // for (let i = 0; i < str.length; i++) {
+  //   if (str[i] === "G" || str[i] === "C" || str[i] === "T" || str[i] === "A") {
+  //     continue;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+  // return true;
+  let regex = /[ACGT]/i;
+  return regex.test(str);
 };
 
 /**
@@ -22,7 +38,7 @@ const isValidDNA = str => {
  * @param {String} str
  * @returns {String}
  */
-const getComplementaryDNA = str => {
+const getComplementaryDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
 };
 
@@ -31,8 +47,17 @@ const getComplementaryDNA = str => {
  * @param {Number} n
  * @returns {Boolean}
  */
-const isItPrime = n => {
-  if (n === undefined) throw new Error("n is required");
+const isItPrime = (n) => {
+  // if (n === undefined) throw new Error("n is required");
+  let i = 2;
+  while (n > i) {
+    if (n % i === 0) {
+      return false;
+    } else {
+      i++;
+    }
+  }
+  return true;
 };
 
 /**
@@ -66,6 +91,11 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  if (staff.length === 0) {
+    return false;
+  }
+  let num = staff.filter((p) => p.rota.includes(day)).length;
+  return num > 3;
 };
 
 module.exports = {
@@ -74,5 +104,5 @@ module.exports = {
   getComplementaryDNA,
   isItPrime,
   createMatrix,
-  areWeCovered
+  areWeCovered,
 };
