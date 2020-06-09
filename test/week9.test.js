@@ -3,6 +3,8 @@ const {
   isValidDNA,
   isItPrime,
   areWeCovered,
+  getComplementaryDNA,
+  createMatrix,
 } = require("../challenges/week9");
 
 describe("sumMultiples", () => {
@@ -76,5 +78,23 @@ describe("areWeCovered", () => {
     ];
     expect(areWeCovered(staff, "Friday")).toBe(true);
     expect(areWeCovered(staff, "Thursday")).toBe(false);
+  });
+});
+
+describe("getComplementaryDNA", () => {
+  test("return complementary DNA base pair, GCAT should return CGTA", () => {
+    expect(getComplementaryDNA("GCAT")).toBe("CGTA");
+  });
+});
+
+describe("createMatrix", () => {
+  test("receive a number and return an array of n arrays", () => {
+    expect(createMatrix(5, "foo")).toEqual([
+      ["foo", "foo", "foo", "foo", "foo"],
+      ["foo", "foo", "foo", "foo", "foo"],
+      ["foo", "foo", "foo", "foo", "foo"],
+      ["foo", "foo", "foo", "foo", "foo"],
+      ["foo", "foo", "foo", "foo", "foo"],
+    ]);
   });
 });

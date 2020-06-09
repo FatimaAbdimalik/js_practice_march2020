@@ -39,7 +39,13 @@ const isValidDNA = (str) => {
  * @returns {String}
  */
 const getComplementaryDNA = (str) => {
-  if (str === undefined) throw new Error("str is required");
+  // if (str === undefined) throw new Error("str is required");
+  let bases = { A: "T", T: "A", C: "G", G: "C" };
+  let complementaryBases = str
+    .split("")
+    .map((p) => bases[p])
+    .join("");
+  return complementaryBases;
 };
 
 /**
@@ -72,8 +78,14 @@ const isItPrime = (n) => {
  * @returns {Array}
  */
 const createMatrix = (n, fill) => {
-  if (n === undefined) throw new Error("n is required");
-  if (fill === undefined) throw new Error("fill is required");
+  // if (n === undefined) throw new Error("n is required");
+  // if (fill === undefined) throw new Error("fill is required");
+
+  let arr = [];
+  for (let i = 0; i < n; i++) {
+    arr.push(fill);
+  }
+  return Array(n).fill(arr);
 };
 
 /**
