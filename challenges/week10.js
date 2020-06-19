@@ -80,7 +80,12 @@ const getScreentimeAlertList = (users, date) => {
  * @param {String} str
  */
 const hexToRGB = (hexStr) => {
-  if (hexStr === undefined) throw new Error("hexStr is required");
+  // if (hexStr === undefined) throw new Error("hexStr is required");
+  let rgb = hexStr
+    .slice(1)
+    .match(/.{1,2}/g)
+    .map((c) => parseInt(c, 16));
+  return `rgb(${rgb})`;
 };
 
 /**
@@ -94,7 +99,115 @@ const hexToRGB = (hexStr) => {
  * @param {Array} board
  */
 const findWinner = (board) => {
-  if (board === undefined) throw new Error("board is required");
+  // if (board === undefined) throw new Error("board is required");
+
+  // player wons if either diagonal , vertically or horizontally
+  let won;
+  let won1;
+  let won2;
+  let won3;
+  let won4;
+  let won5;
+  let won6;
+  let won7;
+  // Test vertical won
+  let V1 = board.map((p) => p[0]);
+  let V2 = board.map((p) => p[1]);
+  let V3 = board.map((p) => p[2]);
+  if (V1[0] === V1[1] && V1[0] === V1[2] && V1[0] === "X") {
+    won = "X";
+  } else if (V1[0] === V1[1] && V1[0] === V1[2] && V1[0] === "0") {
+    won = "0";
+  } else {
+    won = null;
+  }
+  if (V2[0] === V2[1] && V2[0] === V2[2] && V2[0] === "0") {
+    won1 = "0";
+  } else if (V2[0] === V2[1] && V2[0] === V2[2] && V2[0] === "X") {
+    won1 = "X";
+  } else {
+    won1 = null;
+  }
+
+  if (V3[0] === V3[1] && V3[0] === V3[2] && V3[0] === "X") {
+    won2 = "X";
+  } else if (V3[0] === V3[1] && V3[0] === V3[2] && V3[0] === "0") {
+    won2 = "0";
+  } else {
+    won2 = null;
+  }
+
+  // HORIZONTAL WIN
+  let H1 = board[0];
+  if (H1[0] === H1[1] && H1[0] === H1[2] && H1[0] === "X") {
+    won3 = "X";
+  } else if (H1[0] === H1[1] && H1[0] === H1[2] && H1[0] === "0") {
+    won3 = "0";
+  } else {
+    won3 = null;
+  }
+  let H2 = board[1];
+  if (H2[0] === H2[1] && H2[0] === H2[2] && H2[0] === "X") {
+    won4 = "X";
+  } else if (H2[0] === H2[1] && H2[0] === H2[2] && H2[0] === "0") {
+    won4 = "0";
+  } else {
+    won4 = null;
+  }
+  let H3 = board[2];
+  if (H3[0] === H3[1] && H3[0] === H3[2] && H3[0] === "X") {
+    won5 = "X";
+  } else if (H3[0] === H3[1] && H3[0] === H3[2] && H3[0] === "0") {
+    won5 = "0";
+  } else {
+    won5 = null;
+  }
+
+  // DIAGONAL WIN
+  // first digonal line
+  let D1 = board[0][0]; // first corner
+  let D2 = board[1][1]; // middle
+  let D3 = board[2][2]; // last corner
+  if (D1 === D2 && D1 === D3 && D1 === "0") {
+    won6 = "0";
+  } else if (D1 === D2 && D1 === D3 && D1 === "X") {
+    won6 = "X";
+  } else {
+    won6 = null;
+  }
+
+  // seocnd digonal line
+  let D4 = board[2][0];
+  let D5 = board[0][2];
+  if (D4 === D2 && D4 === D5 && D4 === "0") {
+    won7 = "0";
+  } else if (D4 === D2 && D4 === D5 && D4 === "X") {
+    won7 = "X";
+  } else {
+    won7 = null;
+  }
+
+  // VALIDATE either H OR V OR D
+
+  if (won != null) {
+    return won;
+  } else if (won1 != null) {
+    return won1;
+  } else if (won2 != null) {
+    return won2;
+  } else if (won3 != null) {
+    return won3;
+  } else if (won4 != null) {
+    return won4;
+  } else if (won5 != null) {
+    return won5;
+  } else if (won6 != null) {
+    return won6;
+  } else if (won7 != null) {
+    return won7;
+  } else {
+    return null;
+  }
 };
 
 module.exports = {
